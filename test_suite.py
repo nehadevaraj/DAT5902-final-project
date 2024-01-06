@@ -16,7 +16,7 @@ if __name__ == '__main__':
 from my_functions import read_csv_file
 class TestReadCSVFile(unittest.TestCase):
     def test_read_csv_file(self):
-        test_file_path = '/Users/nehadevaraj/Library/CloudStorage/OneDrive-QueenMary,UniversityofLondon/2nd year/professional software and career practices/DAT5092 final project/DAT5902-final-project/Madrid Daily Weather 1997-2015.csv'
+        test_file_path = '/Users/nehadevaraj/Library/CloudStorage/OneDrive-QueenMary,UniversityofLondon/2nd year/professional software and career practices/DAT5092 final project/Madrid Daily Weather 1997-2015.csv'
 
         result = read_csv_file(test_file_path)
 
