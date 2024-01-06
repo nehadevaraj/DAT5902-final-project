@@ -95,7 +95,7 @@ class test_calculate_kendall_correlation(unittest.TestCase):
     def test_calculate_kendall_correlation(self):
         test_data = pd.read_csv('Madrid Daily Weather 1997-2015.csv')
         
-        column2 = 'Min Humidity'
+        column2 = ' Min Humidity'
         column1 = 'Max Humidity'
 
         result = calculate_kendall_correlation(test_data.copy(), column2, column1)
