@@ -113,7 +113,7 @@ if __name__ == '__main__':
 from my_functions import calculate_spearman_correlation
 class test_calculate_spearman_correlation(unittest.TestCase):
     def test_calculate_spearman_correlation(self):
-        test_data = pd.read_csv('weather.csv')
+        test_data = pd.read_csv('Madrid Daily Weather 1997-2015.csv')
 
         column2 = ' Min Sea Level PressurehPa'
         column1 = ' Max Sea Level PressurehPa'
