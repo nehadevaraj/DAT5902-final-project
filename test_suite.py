@@ -3,6 +3,7 @@ import pandas as pd
 import os
 
 '''
+########## EXAMPLE TEST ############
 from my_functions import add_numbers
 
 class TestFunction(unittest.TestCase):
@@ -13,7 +14,9 @@ class TestFunction(unittest.TestCase):
         
 if __name__ == '__main__':
     unittest.main()
+########## EXAMPLE TEST ############
 '''
+######### TEST 1: READING CSV FILE ##############
 from my_functions import read_csv_file
 class test_read_csv_file(unittest.TestCase):
     def test_read_csv_file(self):
@@ -25,6 +28,25 @@ class test_read_csv_file(unittest.TestCase):
 
         self.assertIsInstance(result, pd.DataFrame)
 
+
+if __name__ == '__main__':
+    unittest.main()
+    
+    
+######### TEST 2: CONVERTING CET COLUMN TO DATETIME FORMAT ############## 
+from my_functions import convert_column_to_datetime
+class test_convert_column_to_datetime(unittest.TestCase):
+    def test_convert_column_to_datetime(self):
+        test_data = pd.DataFrame({
+            'CET': ['2022-01-01 12:00:00', '2022-01-02 15:30:00', '2022-01-03 18:45:00'],'Temperature': [10, 15, 20]})
+
+        column_name = 'CET'
+
+        result = convert_column_to_datetime(test_data.copy(), column_name)
+
+        self.assertIsInstance(result, pd.DataFrame)
+
+        self.assertTrue(pd.api.types.is_datetime64_any_dtype(result[column_name]))
 
 if __name__ == '__main__':
     unittest.main()
