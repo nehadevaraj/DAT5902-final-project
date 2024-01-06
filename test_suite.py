@@ -48,5 +48,24 @@ class test_convert_column_to_datetime(unittest.TestCase):
 
         self.assertTrue(pd.api.types.is_datetime64_any_dtype(result[column_name]))
 
+
+if __name__ == '__main__':
+    unittest.main()
+    
+
+######### TEST 3: SET CET COLUMN AS INDEX ##############
+from my_functions import set_cet_as_index
+class test_set_CET_as_index(unittest.TestCase):
+    def test_set_cet_as_index(self):
+        test_data = pd.DataFrame({
+            'CET': ['2022-01-01 12:00:00', '2022-01-02 15:30:00', '2022-01-03 18:45:00'],'Temperature': [10, 15, 20]})
+
+        result = set_cet_as_index(test_data.copy())
+
+        self.assertIsInstance(result, pd.DataFrame)
+
+        self.assertTrue('CET' in result.index.names)
+
+
 if __name__ == '__main__':
     unittest.main()
