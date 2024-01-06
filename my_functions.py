@@ -26,7 +26,13 @@ def set_cet_as_index(data):
     return data
 
 
-######### TEST 4: CORRELATION COEFFICIENT FOR MIN AND MAX TEMP COLUMNS ##############
-def calculate_correlation(data, column2, column1):
-    correlation_coefficient = data[column2].corr(data[column1])
+######### TEST 4: PEARSON CORRELATION COEFFICIENT FOR MIN AND MAX TEMP COLUMNS ##############
+def calculate_correlation(data, column1, column2):
+    correlation_coefficient = data[column1].corr(data[column2], method='pearson')
     return correlation_coefficient
+
+
+######### TEST 5: KENDALL RANK CORRELATION FOR MIN AND MAX HUMIDITY COLUMNS ##############
+def calculate_kendall_correlation(data, column1, column2):
+    kendall_correlation = data[column1].corr(data[column2], method='kendall')
+    return kendall_correlation

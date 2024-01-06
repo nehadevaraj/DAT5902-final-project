@@ -71,7 +71,7 @@ if __name__ == '__main__':
     unittest.main()
     
 
-######### TEST 4: CORRELATION COEFFICIENT FOR MIN AND MAX TEMP COLUMNS ##############
+######### TEST 4: PEARSON CORRELATION COEFFICIENT FOR MIN AND MAX TEMP COLUMNS ##############
 from my_functions import calculate_correlation
 class test_calculate_correlation(unittest.TestCase):
     def test_calculate_correlation(self):
@@ -81,6 +81,24 @@ class test_calculate_correlation(unittest.TestCase):
         column1 = 'Max TemperatureC'
 
         result = calculate_correlation(test_data.copy(), column2, column1)
+
+        self.assertIsInstance(result, float)
+
+
+if __name__ == '__main__':
+    unittest.main()
+    
+
+######### TEST 5: KENDALL RANK CORRELATION FOR MIN AND MAX HUMIDITY COLUMNS ##############
+from my_functions import calculate_kendall_correlation
+class test_calculate_kendall_correlation(unittest.TestCase):
+    def test_calculate_kendall_correlation(self):
+        test_data = pd.read_csv('Madrid Daily Weather 1997-2015.csv')
+        
+        column2 = 'Min Humidity'
+        column1 = 'Max Humidity'
+
+        result = calculate_kendall_correlation(test_data.copy(), column2, column1)
 
         self.assertIsInstance(result, float)
 
