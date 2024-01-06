@@ -16,3 +16,7 @@ example functions:
 
 
 sns 
+
+references:
+https://www.statisticssolutions.com
+https://www.statisticssolutions.com/free-resources/directory-of-statistical-analyses/correlation-pearson-kendall-spearman/#:~:text=Usually%2C%20in%20statistics%2C%20we%20measure,very%20easily%20conduct%20a%20correlation.

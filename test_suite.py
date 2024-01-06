@@ -106,3 +106,22 @@ class test_calculate_kendall_correlation(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    
+    
+
+######### TEST 6: SPEARMAN CORRELATION FOR MIN AND MAX SEA LEVEL PRESSURE COLUMNS ##############
+from my_functions import calculate_spearman_correlation
+class test_calculate_spearman_correlation(unittest.TestCase):
+    def test_calculate_spearman_correlation(self):
+        test_data = pd.read_csv('weather.csv')
+
+        column2 = ' Min Sea Level PressurehPa'
+        column1 = ' Max Sea Level PressurehPa'
+
+        result = calculate_spearman_correlation(test_data.copy(), column2, column1)
+
+        self.assertIsInstance(result, float)
+
+
+if __name__ == '__main__':
+    unittest.main()

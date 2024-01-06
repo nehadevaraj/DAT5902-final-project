@@ -1,5 +1,6 @@
 import pandas as pd
 from scipy.stats import kendalltau
+from scipy.stats import spearmanr
 
 '''
 ########## EXAMPLE TEST ############
@@ -37,3 +38,9 @@ def calculate_correlation(data, column1, column2):
 def calculate_kendall_correlation(data, column1, column2):
     kendall_correlation = data[column1].corr(data[column2], method='kendall')
     return kendall_correlation
+
+
+######### TEST 6: SPEARMAN CORRELATION FOR MIN AND MAX SEA LEVEL PRESSURE COLUMNS ##############
+def calculate_spearman_correlation(data, column1, column2):
+    spearman_correlation, _ = spearmanr(data[column1], data[column2])
+    return spearman_correlation
