@@ -24,3 +24,9 @@ def convert_column_to_datetime(data, column_name):
 def set_cet_as_index(data):
     data.set_index('CET', inplace=True)
     return data
+
+
+######### TEST 4: CORRELATION COEFFICIENT FOR MIN AND MAX TEMP COLUMNS ##############
+def calculate_correlation(data, column2, column1):
+    correlation_coefficient = data[column2].corr(data[column1])
+    return correlation_coefficient

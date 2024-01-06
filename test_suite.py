@@ -32,7 +32,7 @@ class test_read_csv_file(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
     
-    
+
 ######### TEST 2: CONVERTING CET COLUMN TO DATETIME FORMAT ############## 
 from my_functions import convert_column_to_datetime
 class test_convert_column_to_datetime(unittest.TestCase):
@@ -65,6 +65,24 @@ class test_set_CET_as_index(unittest.TestCase):
         self.assertIsInstance(result, pd.DataFrame)
 
         self.assertTrue('CET' in result.index.names)
+
+
+if __name__ == '__main__':
+    unittest.main()
+    
+
+######### TEST 4: CORRELATION COEFFICIENT FOR MIN AND MAX TEMP COLUMNS ##############
+from my_functions import calculate_correlation
+class test_calculate_correlation(unittest.TestCase):
+    def test_calculate_correlation(self):
+        test_data = pd.read_csv('Madrid Daily Weather 1997-2015.csv')
+
+        column2 = 'Min TemperatureC'
+        column1 = 'Max TemperatureC'
+
+        result = calculate_correlation(test_data.copy(), column2, column1)
+
+        self.assertIsInstance(result, float)
 
 
 if __name__ == '__main__':
