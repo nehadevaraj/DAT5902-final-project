@@ -1,0 +1,18 @@
+hi 
+
+create functions for graphs 
+1. run thru all dataframes and count for the no.of ... -> test 
+2. 
+
+
+
+example functions:
+
+1. read_csv function 
+2. finding correlation for two variables (function to do calculation e.g. pearson's correlation coefficient - inputting x and y )
+3. coefficient linear regression - y intersept 
+4. correlation coefficient 
+5. regression line onto scatter plot
+
+
+sns 
