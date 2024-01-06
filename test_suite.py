@@ -1,6 +1,7 @@
 import unittest
 import pandas as pd
 import os
+from scipy.stats import kendalltau
 
 '''
 ########## EXAMPLE TEST ############
