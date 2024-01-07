@@ -145,3 +145,23 @@ if __name__ == '__main__':
     unittest.main()
     
 
+######### TEST 8: Temperature Anomaly Over Time ##############
+from my_functions import plot_temperature_anomaly_over_time
+
+class Test_plotting_functions(unittest.TestCase):
+
+    def setUp(self):
+        self.data = pd.read_csv('Madrid Daily Weather 1997-2015.csv', parse_dates=['CET'], index_col='CET')
+
+    def test_plot_temperature_over_time(self):
+        self.assertIsNone(plot_temperature_over_time(self.data))
+
+    def test_plot_temperature_anomaly_over_time(self):
+        self.assertIsNone(plot_temperature_anomaly_over_time(self.data))
+
+
+if __name__ == '__main__':
+    unittest.main()
+    
+
+

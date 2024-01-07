@@ -63,3 +63,20 @@ def plot_temperature_over_time(data):
     plt.show()
 
 data = pd.read_csv('Madrid Daily Weather 1997-2015.csv', parse_dates=['CET'], index_col='CET')
+
+
+
+######### TEST 8: Temperature Anomaly Over Time ##############
+def plot_temperature_anomaly_over_time(data):
+    plt.figure()
+    
+    mean_temp_reference = data['Mean TemperatureC'].mean()
+    temperature_anomaly = data['Mean TemperatureC'] - mean_temp_reference
+    
+    sns.lineplot(x=data.index, y=temperature_anomaly)
+    plt.title('Temperature Anomaly Over Time')
+    plt.xlabel('Year')
+    plt.ylabel('Temperature Anomaly (C)')
+    plt.show()
+
+data = pd.read_csv('Madrid Daily Weather 1997-2015.csv', parse_dates=['CET'], index_col='CET')
