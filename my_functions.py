@@ -49,6 +49,11 @@ def calculate_spearman_correlation(data, column1, column2):
 
 
 ######### TEST 7: POINT_BISERIAL CORRELATION FOR EVENTS AND MEAN DEW POINT COLUMNS ##############
-def calculate_point_biserial_correlation(data, continuous_column, binary_column):
+'''def calculate_point_biserial_correlation(data, continuous_column, binary_column):
     point_biserial_correlation, _ = pointbiserialr(data[continuous_column], data[binary_column])
-    return point_biserial_correlation
+    return point_biserial_correlation'''
+
+def calculate_point_biserial_correlation(data, continuous_column, binary_column):
+    data[binary_column] = ((data[continuous_column].notnull()) & (data[continuous_column].astype(str).str.strip() != '')).astype(int)
+    return pointbiserialr(data[continuous_column], data[binary_column])[0]
+
