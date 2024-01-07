@@ -1,7 +1,7 @@
 import unittest
 import pandas as pd
 import os
-from scipy.stats import kendalltau
+
 
 '''
 ########## EXAMPLE TEST ############
@@ -128,38 +128,20 @@ if __name__ == '__main__':
     
     
 
-######### TEST 7: POINT_BISERIAL CORRELATION FOR EVENTS AND MEAN DEW POINT COLUMNS ##############
-from my_functions import calculate_point_biserial_correlation
-'''class test_calculate_PointBiserial_correlation(unittest.TestCase):
-    def test_calculate_point_biserial_correlation(self):
-        test_data = pd.read_csv('Madrid Daily Weather 1997-2015.csv')
-        
-        test_data['EventsCategory'] = test_data[' Events'].notnull().astype(int)
+######### TEST 7: Max and Min Temperature Over Time ##############
+from my_functions import plot_temperature_over_time
+class Test_plotting_function(unittest.TestCase):
 
-        continuous_column = 'MeanDew PointC'
-        binary_column = 'EventsCategory'
+    def setUp(self):
+        # Set up any data or configurations needed for the tests
+        self.data = pd.read_csv('Madrid Daily Weather 1997-2015.csv', parse_dates=['CET'], index_col='CET')
 
-        result = calculate_point_biserial_correlation(test_data.copy(), continuous_column, binary_column)
-
-        self.assertIsInstance(result, float)
-
-
-if __name__ == '__main__':
-    unittest.main()'''
-    
-class test_calculate_PointBiserial_correlation(unittest.TestCase):
-    def test_calculate_point_biserial_correlation(self):
-        test_data = pd.read_csv('Madrid Daily Weather 1997-2015.csv')
-
-        continuous_column = 'MeanDew PointC'
-        binary_column = 'EventsCategory'
-
-        result = calculate_point_biserial_correlation(test_data.copy(), continuous_column, binary_column)
-
-        self.assertIsInstance(result, float)
+    def test_plot_temperature_over_time(self):
+        # Assuming your plotting function returns None (or modify as needed)
+        self.assertIsNone(plot_temperature_over_time(self.data))
 
 
 if __name__ == '__main__':
     unittest.main()
-
+    
 

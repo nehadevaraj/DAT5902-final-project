@@ -2,6 +2,9 @@ import pandas as pd
 from scipy.stats import kendalltau
 from scipy.stats import spearmanr
 from scipy.stats import pointbiserialr
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 
 '''
 ########## EXAMPLE TEST ############
@@ -48,12 +51,15 @@ def calculate_spearman_correlation(data, column1, column2):
 
 
 
-######### TEST 7: POINT_BISERIAL CORRELATION FOR EVENTS AND MEAN DEW POINT COLUMNS ##############
-'''def calculate_point_biserial_correlation(data, continuous_column, binary_column):
-    point_biserial_correlation, _ = pointbiserialr(data[continuous_column], data[binary_column])
-    return point_biserial_correlation'''
+######### TEST 7: Max and Min Temperature Over Time ##############
+def plot_temperature_over_time(data):
+    plt.figure()
+    sns.lineplot(x=data.index, y=data['Max TemperatureC'], label='Max Temperature')
+    sns.lineplot(x=data.index, y=data['Min TemperatureC'], label='Min Temperature')
+    plt.title('Max and Min Temperature Over Time')
+    plt.xlabel('Year')
+    plt.ylabel('Temperature (C)')
+    plt.legend()
+    plt.show()
 
-def calculate_point_biserial_correlation(data, continuous_column, binary_column):
-    data[binary_column] = ((data[continuous_column].notnull()) & (data[continuous_column].astype(str).str.strip() != '')).astype(int)
-    return pointbiserialr(data[continuous_column], data[binary_column])[0]
-
+data = pd.read_csv('Madrid Daily Weather 1997-2015.csv', parse_dates=['CET'], index_col='CET')
