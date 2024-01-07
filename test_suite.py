@@ -125,3 +125,24 @@ class test_calculate_spearman_correlation(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+    
+    
+
+######### TEST 7: POINT_BISERIAL CORRELATION FOR EVENTS AND MEAN DEW POINT COLUMNS ##############
+from my_functions import calculate_point_biserial_correlation
+class test_calculate_PointBiserial_correlation(unittest.TestCase):
+    def test_calculate_point_biserial_correlation(self):
+        test_data = pd.read_csv('Madrid Daily Weather 1997-2015.csv')
+        
+        test_data['EventsCategory'] = test_data[' Events'].notnull().astype(int)
+
+        continuous_column = 'MeanDew PointC'
+        binary_column = 'EventsCategory'
+
+        result = calculate_point_biserial_correlation(test_data.copy(), continuous_column, binary_column)
+
+        self.assertIsInstance(result, float)
+
+
+if __name__ == '__main__':
+    unittest.main()

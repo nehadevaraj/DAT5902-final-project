@@ -1,6 +1,7 @@
 import pandas as pd
 from scipy.stats import kendalltau
 from scipy.stats import spearmanr
+from scipy.stats import pointbiserialr
 
 '''
 ########## EXAMPLE TEST ############
@@ -44,3 +45,10 @@ def calculate_kendall_correlation(data, column1, column2):
 def calculate_spearman_correlation(data, column1, column2):
     spearman_correlation, _ = spearmanr(data[column1], data[column2])
     return spearman_correlation
+
+
+
+######### TEST 7: POINT_BISERIAL CORRELATION FOR EVENTS AND MEAN DEW POINT COLUMNS ##############
+def calculate_point_biserial_correlation(data, continuous_column, binary_column):
+    point_biserial_correlation, _ = pointbiserialr(data[continuous_column], data[binary_column])
+    return point_biserial_correlation
